@@ -1,0 +1,2 @@
+# Quoridor
+Jeu de société

@@ -9,8 +9,8 @@ def quoridor():
     pion1 = [0,4]
     pion2 = [8,4]
     select_case = 0
-    barrieres_verticales[1][0] = 1
-    barrieres_horizontales[6][2] = 1
+    barreres_restantes1 = 8
+    barreres_restantes2 = 8
     creer_image(generer_image(select_case, pion1, pion2, barrieres_verticales, barrieres_horizontales))
 
 """

@@ -28,18 +28,14 @@ def P3toP6():
     fd=open("plateau_P6.ppm", "w")
     txt = fs.readline().strip()
     fd.write("P6\n69 69 255\n");
-    initialized = 0
+    i = 0
+    nums = [0]*4761
     while(txt != ""):
         if(txt[0] != "#"):
-            if(initialized < 3):
-                initialized = initialized + 1
-            else:
-                nums = txt.split(" ")
-                print(txt)
-                for i in range (len(nums)):
-                    if(nums[i] != "\n" and nums[i] != ""):
-                        fd.write("%c"%int(nums[i]))
-                fd.write("\n")
+            cur = txt.split(" ")
+            if(i > 3):
+                nums[i] = 
+            i =  i+1;
         txt = fs.readline()
     fs.close()
 

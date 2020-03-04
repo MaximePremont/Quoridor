@@ -85,7 +85,7 @@ def generer_image(select_case, pion1, pion2, barrieres_verticales, barrieres_hor
  @pixels : Matrice contenant les pixels
 """
 def creer_image(pixels):
-    fichier=open("plateau.ppm","w")
+    fichier=open("plateau_P3.ppm","w")
     fichier.write("P3\n69 69\n255\n");
     for a in range(69):
         ligne = ""

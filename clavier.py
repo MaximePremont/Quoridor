@@ -51,3 +51,15 @@ def barriere_present(case):
         return True
     else:
         return False
+"""
+Verifie que des barrieres sont encore présentes
+
+"""
+def compteur_barriere(d):
+    if(selection == barrieres):
+        if barrieres_restantes1 != 0:
+            barrieres_restantes1 = 8-1
+        else:
+            print("erreur plus de barrière restante")
+    else:
+        barrieres_restantes1 = 8

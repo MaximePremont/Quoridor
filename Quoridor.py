@@ -119,4 +119,3 @@ def creer_matrice(lignes, colonnes):
         colonne = [0]*colonnes
         tableau.append(colonne)
     return tableau
-

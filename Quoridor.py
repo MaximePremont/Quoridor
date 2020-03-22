@@ -12,7 +12,6 @@ def quoridor():
     barreres_restantes1 = 8
     barreres_restantes2 = 8
     creer_image(generer_image(select_case, pion1, pion2, barrieres_verticales, barrieres_horizontales))
-    # creer la fenêtre
 
 """
  Vérifie la présence d'un pion sur une case
@@ -86,7 +85,7 @@ def generer_image(select_case, pion1, pion2, barrieres_verticales, barrieres_hor
  @pixels : Matrice contenant les pixels
 """
 def creer_image(pixels):
-    fichier=open("./images/plateau_P3.ppm","w")
+    fichier=open("plateau_P3.ppm","w")
     fichier.write("P3\n69 69\n255\n");
     for a in range(69):
         ligne = ""

@@ -1,33 +1,42 @@
 from tkinter import *
-from PIL import Image, ImageTk
-# Necessité de télécharger PIL
 
-def creer_fenetre():
+"""
+ Crée et affiche la fenêtre
+"""
+def creer():
     fenetre = Tk()
     fenetre.title("Quoridor")
-    fenetre.wm_iconbitmap("logo.ico")
-    
-    #load = Image.open("plateau_P3.ppm")
-    #render = ImageTk.PhotoImage(load)
-    render = PhotoImage(file="plateau_P6.ppm")
-    img = Label(fenetre, image=render)
-    img.image = render
-    img.place(x=0, y=0)
+    fenetre.wm_iconbitmap("./images/logo.ico")
+    fenetre.geometry("800x800")
     
     """
     cl = Label(fenetre, text="Test")
     cl.pack()
     """
-    
-    fenetre.mainloop()
+    mettre_a_jour(fenetre)
+    return fenetre
 
-#creer_fenetre()
+"""
+ Met à jour la fenêtre
+ @fenetre : Fenêtre à mettre à jour
+"""
+def mettre_a_jour(fenetre):
+    P3toP6()
+    render = PhotoImage(file="./images/plateau_P6.ppm")
+    render = render.zoom(10,10)
+    img = Label(fenetre, image=render)
+    img.image = render
+    img.place(x=50, y=5)
+    fenetre.update()
 
+"""
+ Permet de convertir l'image P3 en image P6
+"""
 def P3toP6():
-    fs=open("plateau_P3.ppm","r")
-    fd=open("plateau_P6.ppm", "w")
+    fs=open("./images/plateau_P3.ppm","r")
+    fd=open("./images/plateau_P6.ppm", "w")
     txt = fs.readline().strip()
-    fd.write("P6\n69 69 255\n")
+    fd.write("P6 69 69 255 ")
     initialized = 0
     while(txt != ""):
         if(txt[0] != "#"):
@@ -35,13 +44,11 @@ def P3toP6():
                 initialized = initialized + 1
             else:
                 nums = txt.split(" ")
-                print(txt)
                 for i in range (len(nums)):
                     if(nums[i] != "\n" and nums[i] != ""):
                         fd.write(chr(int(nums[i])))
-                #fd.write("\n")
         txt = fs.readline()
     fs.close()
     fd.close()
 
-
+creer()

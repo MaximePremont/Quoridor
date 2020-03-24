@@ -1,0 +1,3 @@
+Fentre -> Fonction bouton pion
+Fentre -> Fonction bouton barrière
+Outils -> Fontion vérifier barrière

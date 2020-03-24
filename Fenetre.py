@@ -3,7 +3,7 @@ from tkinter import *
 """
  Crée et affiche la fenêtre
 """
-def creer():
+def creerFenetre():
     fenetre = Tk()
     fenetre.title("Quoridor")
     fenetre.wm_iconbitmap("./images/logo.ico")
@@ -20,7 +20,7 @@ def creer():
  Met à jour la fenêtre
  @fenetre : Fenêtre à mettre à jour
 """
-def mettre_a_jour(fenetre):
+def actualiserFenetre(fenetre):
     P3toP6()
     render = PhotoImage(file="./images/plateau_P6.ppm")
     render = render.zoom(10,10)
@@ -50,5 +50,3 @@ def P3toP6():
         txt = fs.readline()
     fs.close()
     fd.close()
-
-creer()

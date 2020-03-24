@@ -10,7 +10,7 @@ def droite(event):
         if(pion_present == True or barriere_present == True):
             print( "erreur")
         else:
-            pion1 = [0,4+1]
+            select_case = [0,0+1]
             print("Pour confirmer appuyez sur entrer")
     else :
         if(pion_present == True or barriere_present == True):

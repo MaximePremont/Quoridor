@@ -2,7 +2,6 @@ from tkinter import*
 from Variables import*
 from Fenetre import*
 from Outils import*
-
 from Quoridor import*
 
 ###############################################################################
@@ -57,6 +56,7 @@ def cliqueDroite(event):
     if (Variables.selectionType == 1):
         if(Variables.pionJ[1] != 8):
             Variables.select_case = [Variables.pionJ[0],Variables.pionJ[1]+1]
+            Variables.confirmation = 1
             actualiserFenetre()
     #else:
         # Barrière suite
@@ -69,6 +69,7 @@ def cliqueGauche(event):
     if(Variables.selectionType == 1):
         if(Variables.pionJ[1] != 0):
             Variables.select_case = [Variables.pionJ[0],Variables.pionJ[1]-1]
+            Variables.confirmation = 1
             actualiserFenetre()
     #else:
         # Barrière suite
@@ -81,6 +82,7 @@ def cliqueBas(event):
     if(Variables.selectionType == 1):
         if(Variables.pionJ[0] != 8):
             Variables.select_case = [Variables.pionJ[0]+1,Variables.pionJ[1]]
+            Variables.confirmation = 1
             actualiserFenetre()
     #else:
         # Barrière suite
@@ -93,9 +95,26 @@ def cliqueHaut(event):
     if(Variables.selectionType == 1):
         if(Variables.pionJ[0] != 0):
             Variables.select_case = [Variables.pionJ[0]-1,Variables.pionJ[1]]
+            Variables.confirmation = 1
             actualiserFenetre()
     #else:
         # Barrière suite
+
+"""
+ ## Fonction appelée par la touche entrer
+ @event--
+"""
+def cliqueEntrer(event):
+    if(Variables.confirmation == 1):
+        Variables.pionJ = Variables.select_case
+        Variables.select_case = 0
+        actualiserFenetre()
+        jeu(0)
+    elif(Variables.confirmation == 2):
+         print("Placement barrière")
+         # barrière suite
+         actualiserFenetre()
+         jeu(0)
 
 """
  Ecoute l'entrée clavier
@@ -107,7 +126,7 @@ def ecouteClavier():
     Variables.fenetre.bind('<Left>',cliqueGauche)
     Variables.fenetre.bind('<Down>',cliqueBas)
     Variables.fenetre.bind('<Up>',cliqueHaut)
-    #Variables.fenetre.bind('<Return>',entrer)
+    Variables.fenetre.bind('<Return>',cliqueEntrer)
     
 def test():
     quoridor()

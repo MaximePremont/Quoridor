@@ -26,10 +26,10 @@ def actualiserFenetre():
     img.image = render
     img.place(x=50, y=5)
     
-    barrieresTexte = Label(Variables.fenetre, text="Barrières restantes : "+str(Variables.barrieres_restantesJ))
+    barrieresTexte = Label(Variables.fenetre, text="Barrières restantes : "+str(Variables.barrieres_restantesJ)+"    ")
     barrieresTexte.place(x=50, y=710)
     
-    messageTexte = Label(Variables.fenetre, text=Variables.message)
+    messageTexte = Label(Variables.fenetre, text=Variables.message+"                                             ")
     messageTexte.place(x=300, y=720)
     
     if(Variables.bouton):
@@ -49,15 +49,17 @@ def actualiserFenetre():
  ## Fonction appelée par le bouton Pion
 """
 def cliquePion():
-    # Appel de la fonction clavier
-    print("A")
+    Variables.selectionType = 1
+    # Suite
 
 """
  ## Fonction appelée par le bouton Barriere
 """
 def cliqueBarriere():
-    # Appel de la fonction clavier
-    print("B")
+    Variables.selectionType = 2
+    if(Variables.select_case != 0):
+        Variables.select_case = 0
+        actualiserFenetre()
 
 """
  Permet de convertir l'image P3 en image P6

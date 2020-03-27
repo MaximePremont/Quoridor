@@ -1,4 +1,5 @@
 import Variables
+from Image import*
 from tkinter import *
 
 """
@@ -16,6 +17,7 @@ def creerFenetre():
  Met à jour la fenêtre
 """
 def actualiserFenetre():
+    creer_image(generer_image())
     P3toP6()
     
     render = PhotoImage(file="./images/plateau_P6.ppm")

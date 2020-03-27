@@ -1,22 +1,10 @@
 from tkinter import*
+from variables import*
 from Fenetre import*
 from Outils import*
 
-clavier = Tk()
-
-def droite(event):
-    if (selectionType == pion):
-        if(pion_present == True ):
-            print( "erreur")
-        else:
-            select_case = [0,0+1]
-            #print("Pour confirmer appuyez sur entrer")
-    else :
-        if(pion_present == True ):
-            print( "erreur")
-        else:
-            barrieres_verticales = [0,8]
-            
+###############################################################################
+"""
 def gauche(event):
     if (selectionType == pion):
         if(pion_present == True):
@@ -55,6 +43,27 @@ def haut(event):
             print( "erreur")
         else:
             barrieres_verticales = [0,8+1]
+"""
+###############################################################################
+
+
+"""
+ ## Fonction appelée par la flèche de droite
+ @event ---
+ @selectionType
+"""
+def cliqueDroite(selectionType):
+    if (selectionType == pion):
+        if(pion_present == True ):
+            print( "erreur")
+        else:
+            select_case = [0,0+1]
+            #print("Pour confirmer appuyez sur entrer")
+    else :
+        if(pion_present == True ):
+            print( "erreur")
+        else:
+            barrieres_verticales = [0,8]
 
 """
  Ecoute l'entrée clavier
@@ -62,7 +71,8 @@ def haut(event):
  @selectionType : Type de sélection ( pion ou barrière )
 """
 def ecouteClavier(fenetre, selectionType):
-    clavier.bind('<Right>',droite)
+    clavier = Tk()
+    clavier.bind('<Right>',cliqueDroite)
     clavier.bind('<Left>',gauche)
     clavier.bind('<Down>',bas)
     clavier.bind('<Up>',haut)

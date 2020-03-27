@@ -1,0 +1,12 @@
+pionO = [0,4]
+pionJ = [8,4]
+cases = 0
+barrieres_verticales = 0
+barrieres_horizontales = 0
+select_case = 0
+barrieres_restantesO = 8
+barrieres_restantesJ = 8
+bouton = False
+message = ""
+fenetre = 0
+selectionType = 0

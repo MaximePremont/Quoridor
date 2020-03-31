@@ -12,6 +12,7 @@ def quoridor():
     Variables.cases = creer_matrice(9, 9)
     Variables.barrieres_verticales = creer_matrice(8, 9)
     Variables.barrieres_horizontales = creer_matrice(9, 8)
+    Variables.barrieres_verticales[7][3] = 1
     creerFenetre()
     time.sleep(10)
     # Aléatoire pour celui qui commence ( 0 : Ordi, 1 : Joueur )

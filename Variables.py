@@ -13,5 +13,5 @@ fenetre = 0
 # Chose que le joueur place : 0 Rien, 1 Pion, 2 Barière
 selectionType = 0
 
-# Confirmation : 0 Pas de confirmation, 1 Confirmation d'un pion, 2 Confirmation d'une barrière, 4 objet placé
+# Confirmation : 0 Pas de confirmation, 1 Confirmation d'un pion, 2 Confirmation d'une barrière
 confirmation = 0

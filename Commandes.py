@@ -1,5 +1,5 @@
+import Variables
 from tkinter import*
-from Variables import*
 from Fenetre import*
 from Outils import*
 from Quoridor import*
@@ -55,9 +55,11 @@ def haut(event):
 def cliqueDroite(event):
     if (Variables.selectionType == 1):
         if(Variables.pionJ[1] != 8):
-            Variables.select_case = [Variables.pionJ[0],Variables.pionJ[1]+1]
-            Variables.confirmation = 1
-            actualiserFenetre()
+            coord = [Variables.pionJ[0],Variables.pionJ[1]+1]
+            if(Variables.pionO != coord and (not barrierePresente(Variables.pionJ, coord))):
+                Variables.select_case = coord
+                Variables.confirmation = 1
+                actualiserFenetre()
     #else:
         # Barrière suite
 
@@ -68,9 +70,11 @@ def cliqueDroite(event):
 def cliqueGauche(event):
     if(Variables.selectionType == 1):
         if(Variables.pionJ[1] != 0):
-            Variables.select_case = [Variables.pionJ[0],Variables.pionJ[1]-1]
-            Variables.confirmation = 1
-            actualiserFenetre()
+            coord = [Variables.pionJ[0],Variables.pionJ[1]-1]
+            if(Variables.pionO != coord and (not barrierePresente(Variables.pionJ, coord))):
+                Variables.select_case = coord
+                Variables.confirmation = 1
+                actualiserFenetre()
     #else:
         # Barrière suite
 
@@ -81,9 +85,11 @@ def cliqueGauche(event):
 def cliqueBas(event):
     if(Variables.selectionType == 1):
         if(Variables.pionJ[0] != 8):
-            Variables.select_case = [Variables.pionJ[0]+1,Variables.pionJ[1]]
-            Variables.confirmation = 1
-            actualiserFenetre()
+            coord = [Variables.pionJ[0]+1,Variables.pionJ[1]]
+            if(Variables.pionO != coord and (not barrierePresente(Variables.pionJ, coord))):
+                Variables.select_case = coord
+                Variables.confirmation = 1
+                actualiserFenetre()
     #else:
         # Barrière suite
 
@@ -94,9 +100,11 @@ def cliqueBas(event):
 def cliqueHaut(event):
     if(Variables.selectionType == 1):
         if(Variables.pionJ[0] != 0):
-            Variables.select_case = [Variables.pionJ[0]-1,Variables.pionJ[1]]
-            Variables.confirmation = 1
-            actualiserFenetre()
+            coord = [Variables.pionJ[0]-1,Variables.pionJ[1]]
+            if(Variables.pionO != coord and (not barrierePresente(Variables.pionJ, coord))):
+                Variables.select_case = coord
+                Variables.confirmation = 1
+                actualiserFenetre()
     #else:
         # Barrière suite
 
@@ -127,8 +135,3 @@ def ecouteClavier():
     Variables.fenetre.bind('<Down>',cliqueBas)
     Variables.fenetre.bind('<Up>',cliqueHaut)
     Variables.fenetre.bind('<Return>',cliqueEntrer)
-    
-def test():
-    quoridor()
-    Variables.selectionType = 1
-    ecouteClavier()

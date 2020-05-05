@@ -88,7 +88,7 @@ def cliqueEspace(event):
     if(Variables.select_barriere[0] == 0):
         Variables.select_barriere[0] = 1
         actualiserFenetre()
-    else
+    else:
         Variables.select_barriere[0] = 0
         actualiserFenetre()
 

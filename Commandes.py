@@ -19,9 +19,9 @@ def cliqueDroite(event):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
-    #else:
-        # Barrière suite
-
+    else:
+        Variables.select_barriere[2] = Variables.select_barriere[2] + 1
+        actualiserFenetre()
 
 """
  ## Fonction appelée par la flèche de gauche
@@ -35,10 +35,11 @@ def cliqueGauche(event):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
-    #else:
-        # Barrière suite
-
-
+    else:
+        Variables.select_barriere[2] = Variables.select_barriere[2]-1
+        actualiserFenetre()
+        
+        
 """
  ## Fonction appelée par la flèche du bas
  @event--
@@ -51,8 +52,9 @@ def cliqueBas(event):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
-    #else:
-        # Barrière suite
+    else:
+        Variables.select_barriere[1] = Variables.select_barriere[1] + 1
+        actualiserFenetre()
 
 
 """
@@ -67,8 +69,9 @@ def cliqueHaut(event):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
-    #else:
-        # Barrière suite
+    else:
+        Variables.select_barriere[1] = Variables.select_barriere[1]-1
+        actualiserFenetre()
 
 
 """

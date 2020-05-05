@@ -1,6 +1,9 @@
+# Fenetre.py
+
 import Variables
 from Image import*
 from tkinter import *
+
 
 """
  Crée et affiche la fenêtre
@@ -12,6 +15,7 @@ def creerFenetre():
     Variables.fenetre.geometry("800x800")
     
     actualiserFenetre()
+
 
 """
  Met à jour la fenêtre
@@ -45,12 +49,14 @@ def actualiserFenetre():
     
     Variables.fenetre.update()
 
+
 """
  ## Fonction appelée par le bouton Pion
 """
 def cliquePion():
     Variables.selectionType = 1
     # Suite
+
 
 """
  ## Fonction appelée par le bouton Barriere
@@ -60,6 +66,7 @@ def cliqueBarriere():
     if(Variables.select_case != 0):
         Variables.select_case = 0
         actualiserFenetre()
+
 
 """
  Permet de convertir l'image P3 en image P6

@@ -1,9 +1,12 @@
+# Quoridor.py
+
 import Variables
 from Outils import*
 from Fenetre import*
 from Commandes import*
 import random
 import time
+
 
 """
  Fonction principale
@@ -21,29 +24,35 @@ def quoridor():
     ecouteClavier()
     jeu(joueur)
 
+
+"""
+ Fonction du jeu
+ @joueur : Joueur pour qui c'est au tour de jouer
+"""
 def jeu(joueur):
-        if(victoire != 0):
-            if(joueur == 0):
-                Variables.message = "Au tour du joueur 2"
-                Variables.bouton = False
-                actualiserFenetre()
-                time.sleep(2)
-                # Déplacement de l'ordi
-                #  [IA MOOVE]
-                Variables.pionO = [Variables.pionO[0]+1,Variables.pionJ[1]]
-                actualiserFenetre()
-                jeu(1)
-                # test de victoire
-            else:
-                Variables.message = "Au tour du joueur 1"
-                Variables.bouton = True
-                Variables.confirmation = 0
-                Variables.selectionType = 0
-                actualiserFenetre()
-        else:
-            Variables.message = ">> Victoire du joueur "+str(victoire())+"<<"
+    if(victoire() != 0):
+        if(joueur == 0):
+            Variables.message = "Au tour du joueur 2"
             Variables.bouton = False
             actualiserFenetre()
+            time.sleep(2)
+            # Déplacement de l'ordi
+            #  [IA MOOVE]
+            Variables.pionO = [Variables.pionO[0]+1,Variables.pionJ[1]]
+            actualiserFenetre()
+            jeu(1)
+            # test de victoire
+        else:
+            Variables.message = "Au tour du joueur 1"
+            Variables.bouton = True
+            Variables.confirmation = 0
+            Variables.selectionType = 0
+            actualiserFenetre()
+    else:
+        Variables.message = ">> Victoire du joueur "+str(victoire())+"<<"
+        Variables.bouton = False
+        actualiserFenetre()
+
 
 """
  Fonction de test de victoire

@@ -1,8 +1,10 @@
+# Commandes.py
+
 import Variables
 from tkinter import*
-from Fenetre import*
 from Outils import*
-from Quoridor import*
+from Fenetre import*
+
 
 """
  ## Fonction appelée par la flèche de droite
@@ -19,6 +21,7 @@ def cliqueDroite(event):
     #else:
         # Barrière suite
 
+
 """
  ## Fonction appelée par la flèche de gauche
  @event--
@@ -33,6 +36,7 @@ def cliqueGauche(event):
                 actualiserFenetre()
     #else:
         # Barrière suite
+
 
 """
  ## Fonction appelée par la flèche du bas
@@ -49,6 +53,7 @@ def cliqueBas(event):
     #else:
         # Barrière suite
 
+
 """
  ## Fonction appelée par la flèche du haut
  @event--
@@ -64,6 +69,7 @@ def cliqueHaut(event):
     #else:
         # Barrière suite
 
+
 """
  ## Fonction appelée par la touche entrer
  @event--
@@ -75,10 +81,11 @@ def cliqueEntrer(event):
         actualiserFenetre()
         jeu(0)
     elif(Variables.confirmation == 2):
-         print("Placement barrière")
-         # barrière suite
-         actualiserFenetre()
-         jeu(0)
+        print("Placement barrière")
+        # barrière suite
+        actualiserFenetre()
+        jeu(0)
+
 
 """
  ## Fonction appelée par la touche entrer
@@ -91,6 +98,7 @@ def cliqueEspace(event):
     else:
         Variables.select_barriere[0] = 0
         actualiserFenetre()
+
 
 """
  Ecoute l'entrée clavier

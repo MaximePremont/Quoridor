@@ -1,5 +1,7 @@
 # Outils.py
+
 import Variables
+
 
 """
  Crée une matrice vide
@@ -69,5 +71,4 @@ def barrierePresente(case_actuelle, case_future):
         if(coord_barriere2 != [-1,-1]):
             if(Variables.barrieres_verticales[coord_barriere2[0]][coord_barriere2[1]]):
                 barriere_presente = True
-    return barriere_presente
-        
+    return barriere_presente  

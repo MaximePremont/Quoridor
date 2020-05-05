@@ -1,5 +1,8 @@
+# Image.py
+
 import Variables
 from Outils import*
+
 
 """
  Fonction de génération d'image
@@ -31,7 +34,7 @@ def generer_image():
                     pixels[start[0]+1+j][start[1]+2] = "B"
     for k in range (8):
         for l in range (8):
-            if(Variables.barrieres_verticales[k][l] == 1):
+            if(Variables.barrieres_verticales[k][l]):
                 start_b = [k*8,l*8+5]
                 for m in range (3):
                     for n in range(13):
@@ -44,7 +47,7 @@ def generer_image():
                             pixels[start_b[0]+n][start_b[1]+m] = "T"
     for o in range (8):
         for p in range (8):
-            if(Variables.barrieres_horizontales[o][p] == 1):
+            if(Variables.barrieres_horizontales[o][p]):
                 start_b = [o*8+5,p*8]
                 for q in range (3):
                     for r in range(13):
@@ -56,6 +59,7 @@ def generer_image():
                         for r in range(13):
                             pixels[start_b[0]+q][start_b[1]+r] = "T"
     return pixels
+
 
 """
  Fonction de création de l'image

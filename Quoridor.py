@@ -16,7 +16,7 @@ def quoridor():
     Variables.barrieres_verticales = creer_matrice(8, 9)
     Variables.barrieres_horizontales = creer_matrice(9, 8)
     Variables.barrieres_verticales[7][3] = 1
-    Variables.select_barriere = [1,4,3]
+    Variables.select_barriere = [0,0,0]
     creerFenetre()
     # Aléatoire pour celui qui commence
     joueur = random.randint(0, 1)

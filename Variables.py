@@ -15,3 +15,8 @@ selectionType = 0
 
 # Confirmation : 0 Pas de confirmation, 1 Confirmation d'un pion, 2 Confirmation d'une barrière
 confirmation = 0
+
+# Séléction pour placer une barrière
+# @arg0 -> Orientation ( 0 verticale | 1 horizontale )
+# @args1/2 -> Position
+select_barriere = [0, -1,-1]

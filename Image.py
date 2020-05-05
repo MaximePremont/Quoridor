@@ -36,6 +36,12 @@ def generer_image():
                 for m in range (3):
                     for n in range(13):
                         pixels[start_b[0]+n][start_b[1]+m] = "V"
+            if(not Variables.select_barriere[0]):
+                if(Variables.select_barriere[1] == k and Variables.select_barriere[2] == l):
+                    start_b = [k*8,l*8+5]
+                    for m in range (3):
+                        for n in range(13):
+                            pixels[start_b[0]+n][start_b[1]+m] = "T"
     for o in range (8):
         for p in range (8):
             if(Variables.barrieres_horizontales[o][p] == 1):
@@ -43,6 +49,12 @@ def generer_image():
                 for q in range (3):
                     for r in range(13):
                         pixels[start_b[0]+q][start_b[1]+r] = "V"
+            if(Variables.select_barriere[0]):
+                if(Variables.select_barriere[1] == o and Variables.select_barriere[2] == p):
+                    start_b = [o*8+5,p*8]
+                    for q in range (3):
+                        for r in range(13):
+                            pixels[start_b[0]+q][start_b[1]+r] = "T"
     return pixels
 
 """
@@ -66,6 +78,8 @@ def creer_image(pixels):
                 ligne = ligne+"0 0 255 "
             elif(couleur == "V"):
                 ligne = ligne+"80 255 0 "
+            elif(couleur == "T"):
+                ligne = ligne+"40 221 227 "
             else:
                 ligne = ligne+"255 255 255 "
         ligne = ligne+"\n"

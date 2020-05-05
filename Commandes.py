@@ -89,11 +89,12 @@ def cliqueEntrer(event):
         actualiserFenetre()
         jeu(0)
     elif(Variables.confirmation == 2):
-        print("Placement barrière")
-        # barrière suite
-        select_barriere = [0, -1,-1]
+        #Variables.barrieres_verticales = Variables.select_barriere
+        Variables.select_barriere = [0, -1,-1]
         actualiserFenetre()
         jeu(0)
+    else:
+        Variables.message = "Erreur"
 
 
 """

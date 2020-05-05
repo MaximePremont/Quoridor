@@ -18,7 +18,6 @@ def quoridor():
     Variables.barrieres_verticales[7][3] = 1
     Variables.select_barriere = [1,4,3]
     creerFenetre()
-    time.sleep(10)
     # Aléatoire pour celui qui commence
     joueur = random.randint(0, 1)
     ecouteClavier()
@@ -30,7 +29,7 @@ def quoridor():
  @joueur : Joueur pour qui c'est au tour de jouer
 """
 def jeu(joueur):
-    if(victoire() != 0):
+    if(victoire() == 0):
         if(joueur == 0):
             Variables.message = "Au tour du joueur 2"
             Variables.bouton = False

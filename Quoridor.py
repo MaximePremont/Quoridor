@@ -17,12 +17,6 @@ def quoridor():
     time.sleep(10)
     # Aléatoire pour celui qui commence ( 0 : Ordi, 1 : Joueur )
     joueur = random.randint(0, 1)
-    if(joueur == 0):
-        Variables.message = "C'est à votre adversaire de commencer !"
-    else:
-        Variables.message = "C'est à vous de commencer !"
-    actualiserFenetre()
-    time.sleep(5)
     ecouteClavier()
     jeu(joueur)
 
@@ -33,6 +27,8 @@ def jeu(joueur):
             Variables.bouton = False
             actualiserFenetre()
             time.sleep(2)
+            # Déplacement de l'ordi
+            #  [IA MOOVE]
             Variables.pionO = [Variables.pionO[0]+1,Variables.pionJ[1]]
             actualiserFenetre()
             jeu(1)

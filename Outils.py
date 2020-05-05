@@ -21,33 +21,53 @@ def creer_matrice(lignes, colonnes):
 """
 def barrierePresente(case_actuelle, case_future):
     barriere_presente = False
-    coord_barriere1 = 0
-    coord_barriere2 = 0
-    print(Variables.barrieres_horizontales)
+    coord_barriere1 = [-1,-1]
+    coord_barriere2 = [-1,-1]
     if(case_actuelle[0] != case_future[0]):
-        # Horizontale
+        # Déplacement horizontale
         if(case_actuelle[0] < case_future[0]):
+            # Vers le haut
             coord_barriere1 = [case_actuelle[0]-2,case_actuelle[1]]
             if(case_actuelle[1] != 0):
+                # Barrière sur 2 niveaux
                 coord_barriere2 = [case_actuelle[0]-2,case_actuelle[1]-1]
         else:
-            coord_barrire1 = [case_actuelle[0]-1,case_actuelle[1]]
+            # Vers le bas
+            coord_barriere1 = [case_actuelle[0]-1,case_actuelle[1]]
             if(case_actuelle[1] != 0):
-                coord_barrire2 = [case_actuelle[0]-1,case_actuelle[1]-1]
-        if(Variables.barrieres_horizontales[coord_barriere1[1]][coord_barriere1[0]] == 1):
-            barriere_presente = True
+                # Barrière sur 2 niveaux
+                coord_barriere2 = [case_actuelle[0]-1,case_actuelle[1]-1]
+        if(case_actuelle[1] == 8):
+            # Barrière forcément sur 2 niveaux
+            coord_barriere1 = [-1,-1]
+        if(coord_barriere1 != [-1,-1]):
+            if(Variables.barrieres_horizontales[coord_barriere1[0]][coord_barriere1[1]]):
+                barriere_presente = True
+        if(coord_barriere2 != [-1,-1]):
+            if(Variables.barrieres_horizontales[coord_barriere2[0]][coord_barriere2[1]]):
+                barriere_presente = True
     else:
-        # Verticale
+        # Déplacement vertical
         if(case_actuelle[1] < case_future[1]):
-           coord_barriere1 = [case_actuelle[0],case_actuelle[1]]
-           if(case_actuelle[0] != 0):
-               coord_barriere2 = [case_actuelle[0]-1,case_actuelle[1]]
+            # Vers la droite
+            coord_barriere1 = [case_actuelle[0],case_actuelle[1]]
+            if(case_actuelle[0] != 0):
+                # Barrière sur 2 niveaux
+                coord_barriere2 = [case_actuelle[0]-1,case_actuelle[1]]
         else:
+            # Vers la gauche
             coord_barriere1 = [case_actuelle[0],case_actuelle[1]-1]
             if(case_actuelle[0] != 0):
+                # Barrière sur 2 niveaux
                 coord_barriere2 = [case_actuelle[0]-1,case_actuelle[1]-1]
-        if(Variables.barrieres_verticales[coord_barriere1[1]][coord_barriere1[0]] == 1):
-            barriere_presente = True
-    print(barriere_presente)
+        if(case_actuelle[0] == 8):
+            # Barrière forcément sur 2 niveaux
+            coord_barriere1 = [-1,-1]
+        if(coord_barriere1 != [-1,-1]):
+            if(Variables.barrieres_verticales[coord_barriere1[0]][coord_barriere1[1]]):
+                barriere_presente = True
+        if(coord_barriere2 != [-1,-1]):
+            if(Variables.barrieres_verticales[coord_barriere2[0]][coord_barriere2[1]]):
+                barriere_presente = True
     return barriere_presente
         

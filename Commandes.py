@@ -21,6 +21,7 @@ def cliqueDroite(event):
                 actualiserFenetre()
     else:
         Variables.select_barriere[2] = Variables.select_barriere[2] + 1
+        Variables.confirmation = 2
         actualiserFenetre()
 
 """
@@ -37,6 +38,7 @@ def cliqueGauche(event):
                 actualiserFenetre()
     else:
         Variables.select_barriere[2] = Variables.select_barriere[2]-1
+        Variables.confirmation = 2
         actualiserFenetre()
         
         
@@ -54,6 +56,7 @@ def cliqueBas(event):
                 actualiserFenetre()
     else:
         Variables.select_barriere[1] = Variables.select_barriere[1] + 1
+        Variables.confirmation = 2
         actualiserFenetre()
 
 
@@ -71,6 +74,7 @@ def cliqueHaut(event):
                 actualiserFenetre()
     else:
         Variables.select_barriere[1] = Variables.select_barriere[1]-1
+        Variables.confirmation = 2
         actualiserFenetre()
 
 
@@ -87,6 +91,7 @@ def cliqueEntrer(event):
     elif(Variables.confirmation == 2):
         print("Placement barrière")
         # barrière suite
+        select_barriere = [0, -1,-1]
         actualiserFenetre()
         jeu(0)
 

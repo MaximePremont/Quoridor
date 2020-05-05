@@ -1,0 +1,68 @@
+body
+{
+	background-image : url("../images/fond3.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	margin:0;
+    width:100%;
+    height:100%;
+	background-attachment:fixed;
+}
+
+header 
+{
+	background-color : #333;
+}
+
+.menu {
+  overflow: hidden;
+  background-color: #333;
+}
+.menu a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.menu a.active {
+  background-color: #2DB28F;
+  color: white;
+}
+
+.titre
+{
+	text-align: center;
+	text-decoration: underline;
+	font-size: 38px;
+	margin-top:25px;
+
+}
+
+
+p
+{
+	font-family : verdana;
+	font-size : 17px;
+	margin-left : 20px;
+}
+
+.images
+{
+	width:25%;
+	height:35%;
+	margin-left: 50px;
+}
+.image2
+{
+	width:18%;
+	height:18%;
+	margin-left: 50px;
+}

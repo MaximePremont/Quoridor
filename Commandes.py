@@ -20,9 +20,10 @@ def cliqueDroite(event):
                 Variables.confirmation = 1
                 actualiserFenetre()
     else:
-        Variables.select_barriere[2] = Variables.select_barriere[2] + 1
-        Variables.confirmation = 2
-        actualiserFenetre()
+        if(Variables.select_barriere[2] != 7):
+            Variables.select_barriere[2] = Variables.select_barriere[2]+1
+            Variables.confirmation = 2
+            actualiserFenetre()
 
 """
  ## Fonction appelée par la flèche de gauche
@@ -37,9 +38,10 @@ def cliqueGauche(event):
                 Variables.confirmation = 1
                 actualiserFenetre()
     else:
-        Variables.select_barriere[2] = Variables.select_barriere[2]-1
-        Variables.confirmation = 2
-        actualiserFenetre()
+        if(Variables.select_barriere[2] != 0):
+            Variables.select_barriere[2] = Variables.select_barriere[2]-1
+            Variables.confirmation = 2
+            actualiserFenetre()
         
         
 """
@@ -55,9 +57,10 @@ def cliqueBas(event):
                 Variables.confirmation = 1
                 actualiserFenetre()
     else:
-        Variables.select_barriere[1] = Variables.select_barriere[1] + 1
-        Variables.confirmation = 2
-        actualiserFenetre()
+        if(Variables.select_barriere[1] != 7):
+            Variables.select_barriere[1] = Variables.select_barriere[1]+1
+            Variables.confirmation = 2
+            actualiserFenetre()
 
 
 """
@@ -73,9 +76,10 @@ def cliqueHaut(event):
                 Variables.confirmation = 1
                 actualiserFenetre()
     else:
-        Variables.select_barriere[1] = Variables.select_barriere[1]-1
-        Variables.confirmation = 2
-        actualiserFenetre()
+        if(Variables.select_barriere[1] != 0):
+            Variables.select_barriere[1] = Variables.select_barriere[1]-1
+            Variables.confirmation = 2
+            actualiserFenetre()
 
 
 """
@@ -86,15 +90,24 @@ def cliqueEntrer(event):
     if(Variables.confirmation == 1):
         Variables.pionJ = Variables.select_case
         Variables.select_case = 0
-        actualiserFenetre()
-        jeu(0)
     elif(Variables.confirmation == 2):
-        #Variables.barrieres_verticales = Variables.select_barriere
-        Variables.select_barriere = [0, -1,-1]
-        actualiserFenetre()
-        jeu(0)
-    else:
-        Variables.message = "Erreur"
+        if(Variables.select_barriere[0]):
+            if(not Variables.barrieres_horizontales[Variables.select_barriere[1]][Variables.select_barriere[2]]):
+                Variables.barrieres_horizontales[Variables.select_barriere[1]][Variables.select_barriere[2]] = 1
+                suite()
+        else:
+            if(not Variables.barrieres_verticales[Variables.select_barriere[1]][Variables.select_barriere[2]]):
+                Variables.barrieres_verticales[Variables.select_barriere[1]][Variables.select_barriere[2]] = 1
+                suite()
+
+
+"""
+ ## Suite de l'entrée
+"""
+def suite():
+    Variables.select_barriere = [0,-1,-1]
+    actualiserFenetre()
+    jeu(0)
 
 
 """
@@ -102,12 +115,11 @@ def cliqueEntrer(event):
  @event--
 """
 def cliqueEspace(event):
-    if(Variables.select_barriere[0] == 0):
+    if(not Variables.select_barriere[0]):
         Variables.select_barriere[0] = 1
-        actualiserFenetre()
     else:
         Variables.select_barriere[0] = 0
-        actualiserFenetre()
+    actualiserFenetre()
 
 
 """

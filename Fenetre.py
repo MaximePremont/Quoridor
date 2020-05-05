@@ -55,7 +55,9 @@ def actualiserFenetre():
 """
 def cliquePion():
     Variables.selectionType = 1
-    # Suite
+    if(Variables.select_barriere != [0,-1,-1]):
+        Variables.select_barriere = [0,-1,-1]
+        actualiserFenetre()
 
 
 """
@@ -63,9 +65,10 @@ def cliquePion():
 """
 def cliqueBarriere():
     Variables.selectionType = 2
+    Variables.select_barriere = [0,0,0]
     if(Variables.select_case != 0):
         Variables.select_case = 0
-        actualiserFenetre()
+    actualiserFenetre()
 
 
 """

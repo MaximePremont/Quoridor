@@ -16,7 +16,6 @@ def quoridor():
     Variables.barrieres_verticales = creer_matrice(8, 9)
     Variables.barrieres_horizontales = creer_matrice(9, 8)
     Variables.barrieres_verticales[7][3] = 1
-    Variables.select_barriere = [0,0,0]
     creerFenetre()
     # Aléatoire pour celui qui commence
     joueur = random.randint(0, 1)
@@ -35,12 +34,9 @@ def jeu(joueur):
             Variables.bouton = False
             actualiserFenetre()
             time.sleep(2)
-            # Déplacement de l'ordi
-            #  [IA MOOVE]
-            Variables.pionO = [Variables.pionO[0]+1,Variables.pionJ[1]]
+            Variables.pionO = [Variables.pionO[0]+1,Variables.pionO[1]]
             actualiserFenetre()
             jeu(1)
-            # test de victoire
         else:
             Variables.message = "Au tour du joueur 1"
             Variables.bouton = True
@@ -48,7 +44,7 @@ def jeu(joueur):
             Variables.selectionType = 0
             actualiserFenetre()
     else:
-        Variables.message = ">> Victoire du joueur "+str(victoire())+"<<"
+        Variables.message = ">> Victoire du joueur "+str(victoire())+" <<"
         Variables.bouton = False
         actualiserFenetre()
 
@@ -58,8 +54,8 @@ def jeu(joueur):
 """
 def victoire():
     if(Variables.pionO[0] == 8):
-        return 1
-    elif(Variables.pionJ[0] == 0):
         return 2
+    elif(Variables.pionJ[0] == 0):
+        return 1
     else:
         return 0

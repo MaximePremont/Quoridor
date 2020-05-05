@@ -15,28 +15,42 @@ def quoridor():
     Variables.barrieres_verticales[7][3] = 1
     creerFenetre()
     time.sleep(10)
-    # Aléatoire pour celui qui commence ( 0 : Ordi, 1 : Joueur )
+    # Aléatoire pour celui qui commence
     joueur = random.randint(0, 1)
     ecouteClavier()
     jeu(joueur)
 
 def jeu(joueur):
-        # test de victoire
-        if(joueur == 0):
-            Variables.message = "C'est au tour de votre de adversaire..."
+        if(victoire != 0):
+            if(joueur == 0):
+                Variables.message = "Au tour du joueur 2"
+                Variables.bouton = False
+                actualiserFenetre()
+                time.sleep(2)
+                # Déplacement de l'ordi
+                #  [IA MOOVE]
+                Variables.pionO = [Variables.pionO[0]+1,Variables.pionJ[1]]
+                actualiserFenetre()
+                jeu(1)
+                # test de victoire
+            else:
+                Variables.message = "Au tour du joueur 1"
+                Variables.bouton = True
+                Variables.confirmation = 0
+                Variables.selectionType = 0
+                actualiserFenetre()
+        else:
+            Variables.message = ">> Victoire du joueur "+str(victoire())+"<<"
             Variables.bouton = False
             actualiserFenetre()
-            time.sleep(2)
-            # Déplacement de l'ordi
-            #  [IA MOOVE]
-            Variables.pionO = [Variables.pionO[0]+1,Variables.pionJ[1]]
-            actualiserFenetre()
-            jeu(1)
-            # test de victoire
-        else:
-            Variables.message = "A vous de jouer !"
-            Variables.bouton = True
-            Variables.confirmation = 0
-            Variables.selectionType = 0
-            actualiserFenetre()
-            
+
+"""
+ Fonction de test de victoire
+"""
+def victoire():
+    if(Variables.pionO[0] == 8):
+        return 1
+    elif(Variables.pionJ[0] == 0):
+        return 2
+    else:
+        return 0

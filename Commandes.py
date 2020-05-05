@@ -81,6 +81,18 @@ def cliqueEntrer(event):
          jeu(0)
 
 """
+ ## Fonction appelée par la touche entrer
+ @event--
+"""
+def cliqueEspace(event):
+    if(Variables.select_barriere[0] == 0):
+        Variables.select_barriere[0] = 1
+        actualiserFenetre()
+    else
+        Variables.select_barriere[0] = 0
+        actualiserFenetre()
+
+"""
  Ecoute l'entrée clavier
  @fenetre : Fenêtre à mettre à jour
  @selectionType : Type de sélection ( pion ou barrière )
@@ -91,3 +103,4 @@ def ecouteClavier():
     Variables.fenetre.bind('<Down>',cliqueBas)
     Variables.fenetre.bind('<Up>',cliqueHaut)
     Variables.fenetre.bind('<Return>',cliqueEntrer)
+    Variables.fenetre.bind('<space>',cliqueEspace)

@@ -4,6 +4,7 @@ import Variables
 from tkinter import*
 from Outils import*
 from Fenetre import*
+from Quoridor import*
 
 
 """

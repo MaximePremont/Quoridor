@@ -1,4 +1,4 @@
-NOTE: L'ensembles des fichiers permettant de fonctionnement du jeu sont dans le dossier jeu, le dossier 
+NOTE: L'ensembles des fichiers permettant le fonctionnement du jeu sont dans le dossier jeu, le dossier 
 image est lui aussi nécessaire car des images sont utilisées et seront générées à l'intérieur.
 
  === Comment jouer au Quoridor ? ===

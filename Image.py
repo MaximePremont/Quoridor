@@ -22,12 +22,12 @@ def generer_image():
                 for f in range (5):
                     pixels[start[0]][start[1]+f] = "O"
                     pixels[start[0]+4][start[1]+f] = "O"
-            if(Variables.pionO == [a,b]):
+            if(Variables.pionA2 == [a,b]):
                 for g in range(3):
                     pixels[start[0]+2][start[1]+1+g] = "R"
                 for h in range(3):
                     pixels[start[0]+1+h][start[1]+2] = "R"
-            elif(Variables.pionJ == [a,b]):
+            elif(Variables.pionA1 == [a,b]):
                 for i in range(3):
                     pixels[start[0]+2][start[1]+1+i] = "B"
                 for j in range(3):

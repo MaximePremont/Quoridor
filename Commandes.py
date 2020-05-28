@@ -13,9 +13,9 @@ from Quoridor import*
 """
 def cliqueDroite(event):
     if (Variables.selectionType == 1):
-        if(Variables.pionJ[1] != 8):
-            coord = [Variables.pionJ[0],Variables.pionJ[1]+1]
-            if(Variables.pionO != coord and (not barrierePresente(Variables.pionJ, coord))):
+        if(Variables.pion1[1] != 8):
+            coord = [Variables.pion1[0],Variables.pion1[1]+1]
+            if(Variables.pion2 != coord and (not barrierePresente(Variables.pion1, coord))):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
@@ -31,9 +31,9 @@ def cliqueDroite(event):
 """
 def cliqueGauche(event):
     if(Variables.selectionType == 1):
-        if(Variables.pionJ[1] != 0):
-            coord = [Variables.pionJ[0],Variables.pionJ[1]-1]
-            if(Variables.pionO != coord and (not barrierePresente(Variables.pionJ, coord))):
+        if(Variables.pion1[1] != 0):
+            coord = [Variables.pion1[0],Variables.pion1[1]-1]
+            if(Variables.pion2 != coord and (not barrierePresente(Variables.pion1, coord))):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
@@ -50,9 +50,9 @@ def cliqueGauche(event):
 """
 def cliqueBas(event):
     if(Variables.selectionType == 1):
-        if(Variables.pionJ[0] != 8):
-            coord = [Variables.pionJ[0]+1,Variables.pionJ[1]]
-            if(Variables.pionO != coord and (not barrierePresente(Variables.pionJ, coord))):
+        if(Variables.pion1[0] != 8):
+            coord = [Variables.pion1[0]+1,Variables.pion1[1]]
+            if(Variables.pion2 != coord and (not barrierePresente(Variables.pion1, coord))):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
@@ -69,9 +69,9 @@ def cliqueBas(event):
 """
 def cliqueHaut(event):
     if(Variables.selectionType == 1):
-        if(Variables.pionJ[0] != 0):
-            coord = [Variables.pionJ[0]-1,Variables.pionJ[1]]
-            if(Variables.pionO != coord and (not barrierePresente(Variables.pionJ, coord))):
+        if(Variables.pion1[0] != 0):
+            coord = [Variables.pion1[0]-1,Variables.pion1[1]]
+            if(Variables.pion2 != coord and (not barrierePresente(Variables.pion1, coord))):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
@@ -88,16 +88,24 @@ def cliqueHaut(event):
 """
 def cliqueEntrer(event):
     if(Variables.confirmation == 1):
-        Variables.pionJ = Variables.select_case
-        Variables.select_case = 0
+        Variables.pion1 = Variables.select_case
+        suite()
     elif(Variables.confirmation == 2):
         if(Variables.select_barriere[0]):
             if(not Variables.barrieres_horizontales[Variables.select_barriere[1]][Variables.select_barriere[2]]):
                 Variables.barrieres_horizontales[Variables.select_barriere[1]][Variables.select_barriere[2]] = 1
+                if(Variables.tour == 1):
+                    Variables.barrieres_restantes1 = Variables.barrieres_restantes1-1;
+                else:
+                    Variables.barrieres_restantes2 = Variables.barrieres_restantes2-1;
                 suite()
         else:
             if(not Variables.barrieres_verticales[Variables.select_barriere[1]][Variables.select_barriere[2]]):
                 Variables.barrieres_verticales[Variables.select_barriere[1]][Variables.select_barriere[2]] = 1
+                if(Variables.tour == 1):
+                    Variables.barrieres_restantes1 = Variables.barrieres_restantes1-1;
+                else:
+                    Variables.barrieres_restantes2 = Variables.barrieres_restantes2-1;
                 suite()
 
 
@@ -106,8 +114,18 @@ def cliqueEntrer(event):
 """
 def suite():
     Variables.select_barriere = [0,-1,-1]
+    Variables.select_case = 0
+    if(Variables.tour == 1):
+        Variables.pionA1 = Variables.pion1
+        Variables.pion1 = Variables.pionA2
+        Variables.pion2 = Variables.pionA1
+        jeu(0)
+    else:
+        Variables.pionA2 = Variables.pion1
+        Variables.pion2 = Variables.pionA2
+        Variables.pion1 = Variables.pionA1
+        jeu(1)
     actualiserFenetre()
-    jeu(0)
 
 
 """

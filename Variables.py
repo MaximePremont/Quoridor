@@ -1,14 +1,16 @@
 # Variables.py
 
-
-pionO = [0,4]
-pionJ = [8,4]
+tour = 0;
+pionA2= [0,4]
+pionA1= [8,4]
+pion2 = [0,4]
+pion1 = [8,4]
 cases = 0
 barrieres_verticales = 0
 barrieres_horizontales = 0
 select_case = 0
-barrieres_restantesO = 8
-barrieres_restantesJ = 8
+barrieres_restantes1 = 8
+barrieres_restantes2 = 8
 bouton = False
 message = ""
 fenetre = 0

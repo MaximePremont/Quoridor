@@ -4,9 +4,7 @@ import Variables
 from Outils import*
 from Fenetre import*
 from Commandes import*
-import random
 import time
-
 
 """
  Fonction principale
@@ -17,10 +15,8 @@ def quoridor():
     Variables.barrieres_horizontales = creer_matrice(9, 8)
     Variables.barrieres_verticales[7][3] = 1
     creerFenetre()
-    # Aléatoire pour celui qui commence
-    joueur = random.randint(0, 1)
     ecouteClavier()
-    jeu(joueur)
+    jeu(1)
 
 
 """
@@ -30,19 +26,31 @@ def quoridor():
 def jeu(joueur):
     if(victoire() == 0):
         if(joueur == 0):
+            Variables.tour = 2;
             Variables.message = "Au tour du joueur 2"
-            Variables.bouton = False
-            actualiserFenetre()
-            time.sleep(2)
-            Variables.pionO = [Variables.pionO[0]+1,Variables.pionO[1]]
-            actualiserFenetre()
-            jeu(1)
-        else:
-            Variables.message = "Au tour du joueur 1"
-            Variables.bouton = True
+            if(Variables.barrieres_restantes2 == 0):
+                Variables.bouton = False
+            else:
+                Variables.bouton = True
             Variables.confirmation = 0
             Variables.selectionType = 0
             actualiserFenetre()
+        else:
+            Variables.tour = 1;
+            # ICI ===
+            # pion1 = pionA1
+            # pion2 = pionA2
+            Variables.message = "Au tour du joueur 1"
+            if(Variables.barrieres_restantes1 == 0):
+                Variables.bouton = False
+            else:
+                Variables.bouton = True
+            Variables.confirmation = 0
+            Variables.selectionType = 0
+            actualiserFenetre()
+            # INVERSION ===
+            #   pion1 = pionA2
+            #   pion2 = pionA1
     else:
         Variables.message = ">> Victoire du joueur "+str(victoire())+" <<"
         Variables.bouton = False
@@ -53,9 +61,12 @@ def jeu(joueur):
  Fonction de test de victoire
 """
 def victoire():
-    if(Variables.pionO[0] == 8):
+    if(Variables.pionA2[0] == 8):
         return 2
-    elif(Variables.pionJ[0] == 0):
+    elif(Variables.pionA1[0] == 0):
         return 1
     else:
         return 0
+
+# Appel de la fonction principale lors du démarrage
+quoridor()

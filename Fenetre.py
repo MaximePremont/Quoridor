@@ -30,20 +30,22 @@ def actualiserFenetre():
     img.image = render
     img.place(x=50, y=5)
     
-    barrieresTexte = Label(Variables.fenetre, text="Barrières restantes : "+str(Variables.barrieres_restantesJ)+"    ")
+    barrieresTexte = Label(Variables.fenetre, text="Barrières restantes joueur 1 : "+str(Variables.barrieres_restantes1)+"    ")
     barrieresTexte.place(x=50, y=710)
+    
+    barrieresTexte = Label(Variables.fenetre, text="Barrières restantes joueur 2 : "+str(Variables.barrieres_restantes2)+"    ")
+    barrieresTexte.place(x=50, y=730)
     
     messageTexte = Label(Variables.fenetre, text=Variables.message+"                                             ")
     messageTexte.place(x=300, y=720)
     
+    boutonPion = Button(Variables.fenetre, text="Pion", command=cliquePion)
+    boutonPion.place(x = 300, y = 750)
+    
     if(Variables.bouton):
-        boutonPion = Button(Variables.fenetre, text="Pion", command=cliquePion)
-        boutonPion.place(x = 300, y = 750)
         boutonBarriere = boutonPion = Button(Variables.fenetre, text="Barrière", command=cliqueBarriere)
         boutonBarriere.place(x = 400, y = 750)
     else:
-        boutonPion = Button(Variables.fenetre, text="Pion", state=DISABLED)
-        boutonPion.place(x = 300, y = 750)
         boutonBarriere = boutonPion = Button(Variables.fenetre, text="Barrière", state=DISABLED)
         boutonBarriere.place(x = 400, y = 750)
     

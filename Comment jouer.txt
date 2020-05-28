@@ -1,0 +1,17 @@
+NOTE: L'ensembles des fichiers permettant de fonctionnement du jeu sont dans le dossier jeu, le dossier 
+image est lui aussi nécessaire car des images sont utilisées et seront générées à l'intérieur.
+
+ === Comment jouer au Quoridor ? ===
+
+Les règles :
+   - Le but de la partie est d'atteindre l'opposé du plateau avant l'autre joueur.
+   - Les joueurs jouent tours à tours et peuvent choisir entrer déplacer
+leur pion ou poser une barrière pour bloquer l'adversaire.
+   - Il est interdit de ne laisser aucun chemin possible à son adversaire.
+
+
+ > Démarrer le jeu <
+Pour démarrer le jeu il suffit de lancer le fichier Quoridor.py et de jouer.
+
+    PREMONT Maxime TSI2
+    SOLDANO Killian TSI2

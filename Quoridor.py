@@ -6,16 +6,20 @@ from Fenetre import*
 from Commandes import*
 import time
 
+
 """
  Fonction principale
 """
 def quoridor():
+    # Initialisation des variables
     Variables.cases = creer_matrice(9, 9)
     Variables.barrieres_verticales = creer_matrice(8, 9)
     Variables.barrieres_horizontales = creer_matrice(9, 8)
     Variables.barrieres_verticales[7][3] = 1
+    # Créer la fenêtre et démarrer l'écoute du clavier
     creerFenetre()
     ecouteClavier()
+    # Lancer la partie avec le joueur 1
     jeu(1)
 
 
@@ -27,7 +31,11 @@ def jeu(joueur):
     if(victoire() == 0):
         if(joueur == 0):
             Variables.tour = 2;
+            # ICI VARIABLES INVERSEES
+            #   pion1 = pionA2
+            #   pion2 = pionA1
             Variables.message = "Au tour du joueur 2"
+            # Désactivation du bouton barrière si le joueur n'en a plus
             if(Variables.barrieres_restantes2 == 0):
                 Variables.bouton = False
             else:
@@ -37,10 +45,11 @@ def jeu(joueur):
             actualiserFenetre()
         else:
             Variables.tour = 1;
-            # ICI ===
-            # pion1 = pionA1
-            # pion2 = pionA2
+            # ICI VARIABLES NORMALES
+            #    pion1 = pionA1
+            #    pion2 = pionA2
             Variables.message = "Au tour du joueur 1"
+            # Désactivation du bouton barrière si le joueur n'en a plus
             if(Variables.barrieres_restantes1 == 0):
                 Variables.bouton = False
             else:
@@ -48,12 +57,8 @@ def jeu(joueur):
             Variables.confirmation = 0
             Variables.selectionType = 0
             actualiserFenetre()
-            # INVERSION ===
-            #   pion1 = pionA2
-            #   pion2 = pionA1
     else:
         Variables.message = ">> Victoire du joueur "+str(victoire())+" <<"
-        Variables.bouton = False
         actualiserFenetre()
 
 

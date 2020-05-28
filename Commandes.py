@@ -12,13 +12,17 @@ from Quoridor import*
  @event--
 """
 def cliqueDroite(event):
+    # Cas de sélection d'un pion
     if (Variables.selectionType == 1):
+        # Ne pas sortir du plateau
         if(Variables.pion1[1] != 8):
             coord = [Variables.pion1[0],Variables.pion1[1]+1]
+            # Impossible d'avoir 2 pions sur une même case
             if(Variables.pion2 != coord and (not barrierePresente(Variables.pion1, coord))):
                 Variables.select_case = coord
                 Variables.confirmation = 1
                 actualiserFenetre()
+    # Cas de sélection d'une barrière
     else:
         if(Variables.select_barriere[2] != 7):
             Variables.select_barriere[2] = Variables.select_barriere[2]+1
@@ -83,17 +87,21 @@ def cliqueHaut(event):
 
 
 """
- ## Fonction appelée par la touche entrer
+ ## Fonction appelée par la touche entrer ( confirmation )
  @event--
 """
 def cliqueEntrer(event):
+    # Cas du pion
     if(Variables.confirmation == 1):
         Variables.pion1 = Variables.select_case
         suite()
+    # Cas de la barrière
     elif(Variables.confirmation == 2):
+        # Barrière horizontale ou verticales
         if(Variables.select_barriere[0]):
             if(not Variables.barrieres_horizontales[Variables.select_barriere[1]][Variables.select_barriere[2]]):
                 Variables.barrieres_horizontales[Variables.select_barriere[1]][Variables.select_barriere[2]] = 1
+                # Retirer une barrière au bon joueur
                 if(Variables.tour == 1):
                     Variables.barrieres_restantes1 = Variables.barrieres_restantes1-1;
                 else:
@@ -102,6 +110,7 @@ def cliqueEntrer(event):
         else:
             if(not Variables.barrieres_verticales[Variables.select_barriere[1]][Variables.select_barriere[2]]):
                 Variables.barrieres_verticales[Variables.select_barriere[1]][Variables.select_barriere[2]] = 1
+                # Retirer une barrière au bon joueur
                 if(Variables.tour == 1):
                     Variables.barrieres_restantes1 = Variables.barrieres_restantes1-1;
                 else:
@@ -113,15 +122,18 @@ def cliqueEntrer(event):
  ## Suite de l'entrée
 """
 def suite():
+    # Mise à zéro des variables de sélection
     Variables.select_barriere = [0,-1,-1]
     Variables.select_case = 0
     if(Variables.tour == 1):
         Variables.pionA1 = Variables.pion1
+        # Inversion des variables pour intrervertir les tours
         Variables.pion1 = Variables.pionA2
         Variables.pion2 = Variables.pionA1
         jeu(0)
     else:
         Variables.pionA2 = Variables.pion1
+        # Inversion des variables pour intrervertir les tours
         Variables.pion2 = Variables.pionA2
         Variables.pion1 = Variables.pionA1
         jeu(1)
@@ -129,7 +141,7 @@ def suite():
 
 
 """
- ## Fonction appelée par la touche entrer
+ ## Fonction appelée par la touche espace ( tourner une barrière )
  @event--
 """
 def cliqueEspace(event):
@@ -146,6 +158,7 @@ def cliqueEspace(event):
  @selectionType : Type de sélection ( pion ou barrière )
 """
 def ecouteClavier():
+    # Association de chaque touche à sa fonction
     Variables.fenetre.bind('<Right>',cliqueDroite)
     Variables.fenetre.bind('<Left>',cliqueGauche)
     Variables.fenetre.bind('<Down>',cliqueBas)

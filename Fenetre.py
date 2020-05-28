@@ -22,26 +22,32 @@ def creerFenetre():
 """
 def actualiserFenetre():
     creer_image(generer_image())
+    # L'affichage ne peut ce faire qu'avec du P6
     P3toP6()
     
+    # Affichage de l'image P6 générée
     render = PhotoImage(file="./images/plateau_P6.ppm")
     render = render.zoom(10,10)
     img = Label(Variables.fenetre, image=render)
     img.image = render
     img.place(x=50, y=5)
     
+    # Textes de barrières restantes
     barrieresTexte = Label(Variables.fenetre, text="Barrières restantes joueur 1 : "+str(Variables.barrieres_restantes1)+"    ")
     barrieresTexte.place(x=50, y=710)
-    
     barrieresTexte = Label(Variables.fenetre, text="Barrières restantes joueur 2 : "+str(Variables.barrieres_restantes2)+"    ")
     barrieresTexte.place(x=50, y=730)
     
+    # Texte global ( victoire ou joueur à qui c'est le tour )
     messageTexte = Label(Variables.fenetre, text=Variables.message+"                                             ")
     messageTexte.place(x=300, y=720)
     
+    # Bouton permettant de choisir de déplacer le pion
     boutonPion = Button(Variables.fenetre, text="Pion", command=cliquePion)
     boutonPion.place(x = 300, y = 750)
     
+    # Bouton permettant de choisir de poser une barrière
+    # Note: Bouton actif ou non selon le nombre de barrières restantes
     if(Variables.bouton):
         boutonBarriere = boutonPion = Button(Variables.fenetre, text="Barrière", command=cliqueBarriere)
         boutonBarriere.place(x = 400, y = 750)
@@ -56,7 +62,9 @@ def actualiserFenetre():
  ## Fonction appelée par le bouton Pion
 """
 def cliquePion():
+    # Type de sélection 1 -> Pion
     Variables.selectionType = 1
+    # Retirer la barrière en sélection si il y en a une
     if(Variables.select_barriere != [0,-1,-1]):
         Variables.select_barriere = [0,-1,-1]
         actualiserFenetre()
@@ -66,8 +74,10 @@ def cliquePion():
  ## Fonction appelée par le bouton Barriere
 """
 def cliqueBarriere():
+    # Type de sélection 1 -> Barrière
     Variables.selectionType = 2
     Variables.select_barriere = [0,0,0]
+    # Retirer la case de sélection de déplacement du pion si il y en a une
     if(Variables.select_case != 0):
         Variables.select_case = 0
     actualiserFenetre()
@@ -80,6 +90,7 @@ def P3toP6():
     fs=open("./images/plateau_P3.ppm","r")
     fd=open("./images/plateau_P6.ppm", "w")
     txt = fs.readline().strip()
+    # Définition de l'en tête du P6
     fd.write("P6 69 69 255 ")
     initialized = 0
     while(txt != ""):
@@ -90,6 +101,7 @@ def P3toP6():
                 nums = txt.split(" ")
                 for i in range (len(nums)):
                     if(nums[i] != "\n" and nums[i] != ""):
+                        # Ecriture des couleurs sous forme chars et non de texte
                         fd.write(chr(int(nums[i])))
         txt = fs.readline()
     fs.close()

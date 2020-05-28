@@ -46,12 +46,12 @@ header
 
 }
 
-
 p
 {
 	font-family : verdana;
 	font-size : 17px;
 	margin-left : 20px;
+	color : #DFDFD5;
 }
 
 .images
@@ -82,3 +82,9 @@ p
 	margin-left: 80px;
 	margin-bottom: 90px;
 }
+li
+{
+	color : black;
+	margin-left : 20px;
+	font-size : 20px;
+]

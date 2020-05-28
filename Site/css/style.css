@@ -87,4 +87,13 @@ li
 	color : black;
 	margin-left : 20px;
 	font-size : 20px;
-]
+}
+
+a {
+color:white;
+text-decoration:none;
+}
+a:hover {
+color:#C92621;
+text-decoration:none;
+}

@@ -32,28 +32,44 @@ def actualiserFenetre():
     img.image = render
     img.place(x=50, y=5)
     
-    # Textes de barrières restantes
-    barrieresTexte = Label(Variables.fenetre, text="Barrières restantes joueur 1 : "+str(Variables.barrieres_restantes1)+"    ")
-    barrieresTexte.place(x=50, y=710)
-    barrieresTexte = Label(Variables.fenetre, text="Barrières restantes joueur 2 : "+str(Variables.barrieres_restantes2)+"    ")
-    barrieresTexte.place(x=50, y=730)
+    # Si pas de partie en cours
+    if(Variables.tour == 0):
+        
+        # Mise à zéro des textes et désactivation des boutons
+        barrieresTexte = Label(Variables.fenetre, text="                                    ")
+        barrieresTexte.place(x=50, y=710)
+        barrieresTexte = Label(Variables.fenetre, text="                                    ")
+        barrieresTexte.place(x=50, y=730)
+        
+        boutonPion = Button(Variables.fenetre, text="Pion", state=DISABLED)
+        boutonPion.place(x = 300, y = 750)
+        
+        boutonBarriere = boutonPion = Button(Variables.fenetre, text="Barrière", state=DISABLED)
+        boutonBarriere.place(x = 400, y = 750)
+        
+    else:
+        # Textes de barrières restantes
+        barrieresTexte = Label(Variables.fenetre, text="Barrières restantes joueur 1 : "+str(Variables.barrieres_restantes1)+"    ")
+        barrieresTexte.place(x=50, y=710)
+        barrieresTexte = Label(Variables.fenetre, text="Barrières restantes joueur 2 : "+str(Variables.barrieres_restantes2)+"    ")
+        barrieresTexte.place(x=50, y=730)
+        
+        # Bouton permettant de choisir de déplacer le pion
+        boutonPion = Button(Variables.fenetre, text="Pion", command=cliquePion)
+        boutonPion.place(x = 300, y = 750)
+        
+        # Bouton permettant de choisir de poser une barrière
+        # Note: Bouton actif ou non selon le nombre de barrières restantes
+        if(Variables.bouton):
+            boutonBarriere = boutonPion = Button(Variables.fenetre, text="Barrière", command=cliqueBarriere)
+            boutonBarriere.place(x = 400, y = 750)
+        else:
+            boutonBarriere = boutonPion = Button(Variables.fenetre, text="Barrière", state=DISABLED)
+            boutonBarriere.place(x = 400, y = 750)
     
     # Texte global ( victoire ou joueur à qui c'est le tour )
     messageTexte = Label(Variables.fenetre, text=Variables.message+"                                             ")
     messageTexte.place(x=300, y=720)
-    
-    # Bouton permettant de choisir de déplacer le pion
-    boutonPion = Button(Variables.fenetre, text="Pion", command=cliquePion)
-    boutonPion.place(x = 300, y = 750)
-    
-    # Bouton permettant de choisir de poser une barrière
-    # Note: Bouton actif ou non selon le nombre de barrières restantes
-    if(Variables.bouton):
-        boutonBarriere = boutonPion = Button(Variables.fenetre, text="Barrière", command=cliqueBarriere)
-        boutonBarriere.place(x = 400, y = 750)
-    else:
-        boutonBarriere = boutonPion = Button(Variables.fenetre, text="Barrière", state=DISABLED)
-        boutonBarriere.place(x = 400, y = 750)
     
     Variables.fenetre.update()
 

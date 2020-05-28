@@ -56,6 +56,7 @@ def jeu(joueur):
             actualiserFenetre()
     else:
         Variables.message = ">> Victoire du joueur "+str(victoire())+" <<"
+        Variables.tour = 0
         actualiserFenetre()
 
 

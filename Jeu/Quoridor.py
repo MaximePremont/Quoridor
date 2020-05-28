@@ -15,7 +15,6 @@ def quoridor():
     Variables.cases = creer_matrice(9, 9)
     Variables.barrieres_verticales = creer_matrice(8, 9)
     Variables.barrieres_horizontales = creer_matrice(9, 8)
-    Variables.barrieres_verticales[7][3] = 1
     # Créer la fenêtre et démarrer l'écoute du clavier
     creerFenetre()
     ecouteClavier()

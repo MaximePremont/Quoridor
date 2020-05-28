@@ -4,7 +4,7 @@ import Variables
 from tkinter import*
 from Outils import*
 from Fenetre import*
-from Quoridor import*
+import Quoridor
 
 
 """
@@ -130,13 +130,13 @@ def suite():
         # Inversion des variables pour intrervertir les tours
         Variables.pion1 = Variables.pionA2
         Variables.pion2 = Variables.pionA1
-        jeu(0)
+        Quoridor.jeu(0)
     else:
         Variables.pionA2 = Variables.pion1
         # Inversion des variables pour intrervertir les tours
         Variables.pion2 = Variables.pionA2
         Variables.pion1 = Variables.pionA1
-        jeu(1)
+        Quoridor.jeu(1)
     actualiserFenetre()
 
 

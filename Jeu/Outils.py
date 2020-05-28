@@ -28,13 +28,13 @@ def barrierePresente(case_actuelle, case_future):
     if(case_actuelle[0] != case_future[0]):
         # Déplacement horizontale
         if(case_actuelle[0] < case_future[0]):
-            # Vers le haut
-            coord_barriere1 = [case_actuelle[0]-2,case_actuelle[1]]
+            # Vers le bas
+            coord_barriere1 = [case_actuelle[0],case_actuelle[1]]
             if(case_actuelle[1] != 0):
                 # Barrière sur 2 niveaux
-                coord_barriere2 = [case_actuelle[0]-2,case_actuelle[1]-1]
+                coord_barriere2 = [case_actuelle[0],case_actuelle[1]-1]
         else:
-            # Vers le bas
+            # Vers le haut
             coord_barriere1 = [case_actuelle[0]-1,case_actuelle[1]]
             if(case_actuelle[1] != 0):
                 # Barrière sur 2 niveaux

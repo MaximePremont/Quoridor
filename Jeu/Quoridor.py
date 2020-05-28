@@ -4,7 +4,6 @@ import Variables
 from Outils import*
 from Fenetre import*
 from Commandes import*
-import time
 
 
 """
@@ -20,7 +19,6 @@ def quoridor():
     ecouteClavier()
     # Lancer la partie avec le joueur 1
     jeu(1)
-
 
 """
  Fonction du jeu
@@ -71,6 +69,3 @@ def victoire():
         return 1
     else:
         return 0
-
-# Appel de la fonction principale lors du démarrage
-quoridor()

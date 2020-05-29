@@ -11,7 +11,7 @@ leur pion ou poser une barrière pour bloquer l'adversaire.
 
 
  > Démarrer le jeu <
-Pour démarrer le jeu il suffit de lancer le fichier Quoridor.py et d'appeller la fonction quordior() et de jouer.
+Pour démarrer le jeu il suffit de lancer le fichier Quoridor.py et d'appeller la fonction quoridor() et de jouer.
 déplacement de la barrière ou du pion avec les flèches directionnelle du clavier.
 Pour tourner une barrière il suffit d'appuyer sur la touche espace. 
 Pour valier la position du pion ou de la barrière appuyer sur la touche entrer.

@@ -45,6 +45,12 @@ header
 	margin-top:25px;
 
 }
+.prob
+{
+	margin-left: 50px;
+	margin-top:25px;
+
+}
 
 p
 {
@@ -98,6 +104,32 @@ p
 	border-style: outset;
     border-radius: 5px;
 }
+.image6
+{
+	width:35%;
+	height:35%;
+	margin-left: 50px;
+	border-style: outset;
+    border-radius: 5px;
+}
+.image7
+{
+	width:40%;
+	height:40%;
+	margin-left: 50px;
+	margin-bottom : 250px;
+	border-style: outset;
+    border-radius: 5px;
+}
+.image8
+{
+	width:50%;
+	height:50%;
+	margin-left: 50px;
+	border-style: outset;
+    border-radius: 5px;
+}
+
 .image
 {
 	width:35%;
@@ -120,4 +152,13 @@ text-decoration:none;
 a:hover {
 color:#C92621;
 text-decoration:none;
+}
+
+#ancre
+{
+	display: block;
+	text-align: right;
+	margin-right: 50px;
+	font-size: 17px;
+	color: black;
 }

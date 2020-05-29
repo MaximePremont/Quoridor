@@ -14,7 +14,7 @@ leur pion ou poser une barrière pour bloquer l'adversaire.
 Pour démarrer le jeu il suffit de lancer le fichier Quoridor.py et d'appeller la fonction quoridor() puis de jouer.
 Cliquer sur les boutons avec la souris puis le déplacement de la barrière ou du pion se fait avec les flèches directionnelles du clavier.
 Pour tourner une barrière il suffit d'appuyer sur la touche espace. 
-Pour valier la position du pion ou de la barrière appuyer sur la touche entrer.
+Pour valier la position du pion ou de la barrière appuyer sur la touche entrée.
 
     PREMONT Maxime TSI2
     SOLDANO Killian TSI2

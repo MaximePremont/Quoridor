@@ -73,7 +73,6 @@ p
 	width:18%;
 	height:18%;
 	margin-left: 50px;
-	margin-bottom: 400px;
 	border-style: outset;
     border-radius: 5px;
 }
@@ -91,7 +90,6 @@ p
 	width:25%;
 	height:25%;
 	margin-left: 50px;
-	margin-bottom: 400px;
 	border-style: outset;
     border-radius: 5px;
 }
@@ -129,7 +127,15 @@ p
 	border-style: outset;
     border-radius: 5px;
 }
-
+.image9
+{
+	width:18%;
+	height:18%;
+	margin-bottom: 400px;
+	margin-left: 50px;
+	border-style: outset;
+    border-radius: 5px;
+}
 .image
 {
 	width:35%;
